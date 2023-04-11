@@ -2,6 +2,41 @@ export const posts = [
   {
     id: '1',
     createdAt: '29 December 2021',
+    video:
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?',
+    user: {
+      id: 'u1',
+      image:
+        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg',
+      username: 'bogdanchumak',
+    },
+    nofComments: 11,
+    nofLikes: 34,
+
+    comments: [
+      {
+        id: '1',
+        comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
+        user: {
+          id: 'u1',
+          username: 'bogdanchumak',
+        },
+      },
+      {
+        id: '2',
+        comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
+        user: {
+          id: 'u1',
+          username: 'bogdanchumak',
+        },
+      },
+    ],
+  },
+  {
+    id: '2',
+    createdAt: '22 December 2021',
     images: [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg',
@@ -13,41 +48,8 @@ export const posts = [
     user: {
       id: 'u1',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg',
-      username: 'vadimnotjustdev',
-    },
-    nofComments: 11,
-    nofLikes: 34,
-    comments: [
-      {
-        id: '1',
-        comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
-        user: {
-          id: 'u1',
-          username: 'vadimnotjustdev',
-        },
-      },
-      {
-        id: '2',
-        comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
-        user: {
-          id: 'u1',
-          username: 'vadimnotjustdev',
-        },
-      },
-    ],
-  },
-  {
-    id: '2',
-    createdAt: '22 December 2021',
-    image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?',
-    user: {
-      id: 'u1',
-      image:
         'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/2.jpg',
-      username: 'vadimnotjustdev',
+      username: 'bogdanchumak',
     },
     nofComments: 11,
     nofLikes: 34,
@@ -57,7 +59,7 @@ export const posts = [
         comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
         user: {
           id: 'u1',
-          username: 'vadimnotjustdev',
+          username: 'bogdanchumak',
         },
       },
       {
@@ -65,7 +67,7 @@ export const posts = [
         comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
         user: {
           id: 'u1',
-          username: 'vadimnotjustdev',
+          username: 'bogdanchumak',
         },
       },
     ],
@@ -80,7 +82,7 @@ export const posts = [
       id: 'u1',
       image:
         'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/3.jpg',
-      username: 'vadimnotjustdev',
+      username: 'bogdanchumak',
     },
     nofComments: 11,
     nofLikes: 34,
@@ -90,7 +92,7 @@ export const posts = [
         comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
         user: {
           id: 'u1',
-          username: 'vadimnotjustdev',
+          username: 'bogdanchumak',
         },
       },
       {
@@ -98,7 +100,7 @@ export const posts = [
         comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
         user: {
           id: 'u1',
-          username: 'vadimnotjustdev',
+          username: 'bogdanchumak',
         },
       },
     ],
@@ -113,7 +115,7 @@ export const posts = [
       id: 'u1',
       image:
         'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/4.jpg',
-      username: 'vadimnotjustdev',
+      username: 'bogdanchumak',
     },
     nofComments: 11,
     nofLikes: 34,
@@ -123,7 +125,7 @@ export const posts = [
         comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
         user: {
           id: 'u1',
-          username: 'vadimnotjustdev',
+          username: 'bogdanchumak',
         },
       },
       {
@@ -131,7 +133,7 @@ export const posts = [
         comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
         user: {
           id: 'u1',
-          username: 'vadimnotjustdev',
+          username: 'bogdanchumak',
         },
       },
     ],

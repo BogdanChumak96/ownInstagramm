@@ -9,6 +9,7 @@ export interface IPost {
   nofComments: number;
   nofLikes: number;
   comments: IComment[];
+  isVisible?: boolean;
 }
 
 export interface IUser {
