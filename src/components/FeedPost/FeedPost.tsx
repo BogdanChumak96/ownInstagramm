@@ -10,8 +10,9 @@ import {Comment} from '../Comment/Comment';
 import {IPost} from './../../types/models';
 import {DoublePressable} from '../doublePressable/index';
 import {Carousel} from '../carousel/Carousel';
+import {VideoPlayer} from '../VideoPlayer/VideoPlayer';
 
-export const FeedPost = ({post}: IPost): JSX.Element => {
+export const FeedPost = ({post, isVisible}: IPost): JSX.Element => {
   const [show, setShow] = useState(false);
   const [liked, setLiked] = useState(false);
 
@@ -36,6 +37,12 @@ export const FeedPost = ({post}: IPost): JSX.Element => {
     );
   } else if (post.images) {
     content = <Carousel toggleLike={toggleLike} images={post.images} />;
+  } else if (post.video) {
+    content = (
+      <DoublePressable onDoublePress={toggleLike}>
+        <VideoPlayer uri={post.video} paused={!isVisible} />
+      </DoublePressable>
+    );
   }
 
   return (
