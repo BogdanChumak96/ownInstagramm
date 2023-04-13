@@ -1,11 +1,11 @@
 import {View, Text, Image, TextInput} from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import user from '../../common/user';
 import {useForm, Control, Controller} from 'react-hook-form';
 import {styles} from './styles';
 import {IUser} from '../../types/models';
 import {colors} from '../../theme/colors';
-
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 type IEditableUser = Pick<IUser, IEditableFields>;
 type IEditableFields = 'name' | 'username' | 'website' | 'bio';
 
@@ -57,6 +57,7 @@ const CustomInput = ({
 );
 
 const EditProfileScreen = () => {
+const [setedAvatar, setsetedAvatar] = useState(null)
   const {
     control,
     register,
@@ -68,11 +69,20 @@ const EditProfileScreen = () => {
   const onSubmit = (data: IEditableUser) => {
     console.log('Data', data);
   };
+  const onChangePhoto = () => {
+    launchImageLibrary({mediaType: 'photo', ({assets, didCancel, errorMessage, errorCode}) =>{
+        if(!didCancel && assets && !errorCode){
+            setsetedAvatar(assets.uri);
+        }
+    }});
+  };
 
   return (
     <View style={styles.page}>
       <Image style={styles.avatar} source={{uri: user.image}} />
-      <Text style={styles.textButton}>Change Profile Avatar</Text>
+      <Text onPress={onChangePhoto} style={styles.textButton}>
+        Change Profile Avatar
+      </Text>
 
       <CustomInput
         rules={{required: 'Name is required'}}

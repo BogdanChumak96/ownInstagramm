@@ -2,11 +2,13 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {HomeScreen} from './src/screens/home/Home';
 import {CommentsScreen} from './src/screens/Comments/Comments';
+import EditProfileScreen from './src/screens/EditProfileScreen/EditProfileScreen';
+import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 
 function App(): JSX.Element {
   return (
     <View style={styles.app}>
-      <CommentsScreen />
+      <EditProfileScreen />
     </View>
   );
 }
