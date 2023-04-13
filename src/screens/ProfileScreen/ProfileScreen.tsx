@@ -10,12 +10,15 @@ import {
   MyProfileRouteProp,
 } from '../../navigation/types';
 import React from 'react';
+
 const ProfileScreen = () => {
   const route = useRoute<UserProfileRouteProp | MyProfileRouteProp>();
   const navigation = useNavigation<
     UserProfileNavigationProp | MyUserProfileNavigationProp
   >();
   const userId = route.params?.userId;
+  console.warn(userId);
+
   //   navigation.setOptions({title: user.username});
 
   return <FeedGridView data={user.posts} ListHeaderComponent={ProfileHeader} />;

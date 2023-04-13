@@ -12,9 +12,10 @@ import {DoublePressable} from '../doublePressable/index';
 import {Carousel} from '../carousel/Carousel';
 import {VideoPlayer} from '../VideoPlayer/VideoPlayer';
 import {useNavigation} from '@react-navigation/native';
+import {FeedNavigationProp} from '../../navigation/types';
 
 export const FeedPost = ({post, isVisible}: IPost): JSX.Element => {
-  const navigator = useNavigation();
+  const navigator = useNavigation<FeedNavigationProp>();
   const [show, setShow] = useState(false);
   const [liked, setLiked] = useState(false);
 
@@ -28,8 +29,9 @@ export const FeedPost = ({post, isVisible}: IPost): JSX.Element => {
   const toggleShowDescription = () => {
     setShow(prev => !prev);
   };
+
   const navigateToUser = () => {
-    navigator.navigate('Profile', {user: post.user.id});
+    navigator.navigate('Profile', {userId: post.user.id});
   };
   let content = null;
   if (post.image) {
