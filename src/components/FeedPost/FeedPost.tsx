@@ -11,18 +11,26 @@ import {IPost} from './../../types/models';
 import {DoublePressable} from '../doublePressable/index';
 import {Carousel} from '../carousel/Carousel';
 import {VideoPlayer} from '../VideoPlayer/VideoPlayer';
+import {useNavigation} from '@react-navigation/native';
 
 export const FeedPost = ({post, isVisible}: IPost): JSX.Element => {
+  const navigator = useNavigation();
   const [show, setShow] = useState(false);
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => {
     setLiked(prev => !prev);
   };
+  const onNavigateToComments = () => {
+    navigator.navigate('Comments', {postId: post.id});
+  };
+
   const toggleShowDescription = () => {
     setShow(prev => !prev);
   };
-
+  const navigateToUser = () => {
+    navigator.navigate('Profile', {user: post.user.id});
+  };
   let content = null;
   if (post.image) {
     content = (
@@ -54,7 +62,9 @@ export const FeedPost = ({post, isVisible}: IPost): JSX.Element => {
           }}
           style={styles.userAvatar}
         />
-        <Text style={styles.userName}>{post.user.username}</Text>
+        <Text onPress={navigateToUser} style={styles.userName}>
+          {post.user.username}
+        </Text>
       </View>
       {content}
 
@@ -101,7 +111,9 @@ export const FeedPost = ({post, isVisible}: IPost): JSX.Element => {
           {post.description}
         </Text>
         {/* Comments */}
-        <Text>View all {post.nofComments} comments</Text>
+        <Text onPress={onNavigateToComments}>
+          View all {post.nofComments} comments
+        </Text>
         {post.comments.map(comment => (
           <Comment key={comment.id} comment={comment} />
         ))}

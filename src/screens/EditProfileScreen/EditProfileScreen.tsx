@@ -1,5 +1,5 @@
 import {View, Text, Image, TextInput} from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import user from '../../common/user';
 import {useForm, Control, Controller} from 'react-hook-form';
 import {styles} from './styles';
@@ -57,7 +57,7 @@ const CustomInput = ({
 );
 
 const EditProfileScreen = () => {
-const [setedAvatar, setsetedAvatar] = useState(null)
+  const [setedAvatar, setsetedAvatar] = useState<null | Asset>(null);
   const {
     control,
     register,
@@ -70,16 +70,19 @@ const [setedAvatar, setsetedAvatar] = useState(null)
     console.log('Data', data);
   };
   const onChangePhoto = () => {
-    launchImageLibrary({mediaType: 'photo', ({assets, didCancel, errorMessage, errorCode}) =>{
-        if(!didCancel && assets && !errorCode){
-            setsetedAvatar(assets.uri);
+    launchImageLibrary(
+      {mediaType: 'photo'},
+      ({assets, didCancel, errorMessage, errorCode}) => {
+        if (!didCancel && assets?.length > 0 && !errorCode) {
+          setsetedAvatar(assets[0]);
         }
-    }});
+      },
+    );
   };
 
   return (
     <View style={styles.page}>
-      <Image style={styles.avatar} source={{uri: user.image}} />
+      <Image style={styles.avatar} source={{uri: user.image || setedAvatar}} />
       <Text onPress={onChangePhoto} style={styles.textButton}>
         Change Profile Avatar
       </Text>

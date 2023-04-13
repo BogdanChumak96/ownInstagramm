@@ -3,8 +3,11 @@ import React from 'react';
 import {styles} from './styles';
 import user from '../../common/user';
 import Button from '../../components/Button/Button';
+import {useNavigation} from '@react-navigation/native';
+import {ProfileNavigationProp} from '../../navigation/types';
 
 const ProfileHeader = () => {
+  const navigation = useNavigation<ProfileNavigationProp>();
   return (
     <View style={styles.root}>
       <View style={styles.headerRow}>
@@ -31,9 +34,7 @@ const ProfileHeader = () => {
       <View style={{flexDirection: 'row'}}>
         <Button
           title="Edit Profile"
-          onPress={() => {
-            console.warn('Edit Profile');
-          }}
+          onPress={() => navigation.navigate('Edit Profile')}
         />
         <Button title="Edit Page" onPress={() => {}} />
       </View>
