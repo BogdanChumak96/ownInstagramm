@@ -57,7 +57,7 @@ const CustomInput = ({
 );
 
 const EditProfileScreen = () => {
-  const [setedAvatar, setsetedAvatar] = useState<null | Asset>(null);
+  const [Avatar, setAvatar] = useState<null | Asset>(null);
   const {
     control,
     register,
@@ -74,7 +74,8 @@ const EditProfileScreen = () => {
       {mediaType: 'photo'},
       ({assets, didCancel, errorMessage, errorCode}) => {
         if (!didCancel && assets?.length > 0 && !errorCode) {
-          setsetedAvatar(assets[0]);
+          setAvatar(assets[0].uri);
+          console.warn(assets[0].uri);
         }
       },
     );
@@ -82,7 +83,7 @@ const EditProfileScreen = () => {
 
   return (
     <View style={styles.page}>
-      <Image style={styles.avatar} source={{uri: user.image || setedAvatar}} />
+      <Image style={styles.avatar} source={{uri: Avatar || user.image}} />
       <Text onPress={onChangePhoto} style={styles.textButton}>
         Change Profile Avatar
       </Text>

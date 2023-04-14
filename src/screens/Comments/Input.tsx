@@ -15,7 +15,7 @@ const Input = () => {
     <View style={styles.container}>
       <Image
         source={{
-          uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg',
+          uri: 'https://avatarfiles.alphacoders.com/244/thumb-244893.jpg',
         }}
         style={styles.image}
       />
